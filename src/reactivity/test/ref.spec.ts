@@ -1,6 +1,6 @@
 import { typeAssert } from '../../utils';
 import { effect } from '../effect';
-import { isRef, proxyRefs, ref, unRef } from '../ref';
+import { isRef, proxyRefs, qw, ref } from '../ref';
 
 describe('ref test', () => {
   it('ref base on easy type', () => {
@@ -73,8 +73,8 @@ describe('ref test', () => {
     const b = 1;
     expect(isRef(a)).toBe(true);
     expect(isRef(b)).toBe(false);
-    expect(unRef(a)).toBe(1);
-    expect(unRef(b)).toBe(1);
+    expect(qw(a)).toBe(1);
+    expect(qw(b)).toBe(1);
   });
 
   // vue3在jinx模板解析时使用了该代理，也就是为什么 模板中无需使用 refIntancce.value 得到指(地层使用proxy代理代理了ref，得到值时jinx解构，赋值时进行调用)

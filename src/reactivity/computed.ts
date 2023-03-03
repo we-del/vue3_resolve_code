@@ -10,14 +10,13 @@ class ComputedImpl {
   _value: any;
 
   effectActive: EffectActive;
-  // isCollect:boolean = false
   constructor(getter) {
     this.getter = getter;
   }
 
   // 给类添加劫持属性value
   public get value() {
-    const self = this;
+    
     if (!this.isCache) {
       if (!this.effectActive) {
         this.effectActive = new EffectActive(this.getter, () => {

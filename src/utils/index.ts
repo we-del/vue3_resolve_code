@@ -6,5 +6,7 @@ export const typeAssert = target => {
   const s = Object.prototype.toString.call(target);
   const pattern = /\[\s*object (.*)\s*\]/;
   console.log('pattern.exec(s)', pattern.exec(s));
-  return pattern.exec(s)[1];
+  return pattern.exec(s)[1].toLowerCase();
 };
+
+// ->  字体为什么没效果

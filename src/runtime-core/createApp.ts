@@ -1,4 +1,4 @@
-import { render } from './render';
+import { render } from './renderer';
 import { createVNode } from './vnode';
 
 export function createApp(rootComponent) {
@@ -10,6 +10,7 @@ export function createApp(rootComponent) {
 
       const rootContainer = document.querySelector(root);
       const vnode = createVNode(rootComponent);
+      debugger;
       render(vnode, rootContainer);
     }
   };
